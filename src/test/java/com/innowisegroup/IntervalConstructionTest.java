@@ -8,7 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-class IntervalsConstructionTest {
+class IntervalConstructionTest {
 
     @Test
     void nullInput() {
@@ -28,20 +28,20 @@ class IntervalsConstructionTest {
     }
 
     @Test
-    void exampleTest() {
+    void checkIntervalsConstructionAlgorithm() {
         String[] args = new String[] {"P5", "A#", "asc"};
         String actual = Intervals.intervalConstruction(args);
         Assertions.assertEquals("E#", actual);
     }
 
     @ParameterizedTest
-    @MethodSource("provideWithData")
-    void intervalsConstructionAlgorithmTest(String[] args, String expected) {
+    @MethodSource("provideWithExampleData")
+    void checkIntervalsConstructionAlgorithmWithExampleData(String[] args, String expected) {
         String actual = Intervals.intervalConstruction(args);
         Assertions.assertEquals(expected, actual);
     }
 
-    public static Stream<Arguments> provideWithData() {
+    public static Stream<Arguments> provideWithExampleData() {
         return Stream.of(
             Arguments.arguments(new String[] {"M2", "C", "asc"}, "D"),
             Arguments.arguments(new String[] {"P5", "B", "asc"}, "F#"),
