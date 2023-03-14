@@ -1,5 +1,3 @@
-package com.innowisegroup;
-
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Assertions;

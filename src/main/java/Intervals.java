@@ -1,5 +1,3 @@
-package com.innowisegroup;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,6 +41,7 @@ public class Intervals {
         "##", 2
     );
 
+    // C--D--E-F--G--A--B-C
     private static final List<Integer> intervalsBetweenNeighbouringNotes = List.of(2, 2, 1, 2, 2, 2, 1);
 
     private static final String ORDER_DESCENDING_VALUE = "dsc";
@@ -53,8 +52,8 @@ public class Intervals {
         validateInput(args);
 
         String intervalName = args[INTERVAL_NAME_INDEX];
-        int intervalQuantity = getIntervalQuantity(intervalName);
-        int intervalQuality = getIntervalQuality(intervalName);
+        int intervalQuantity = getIntervalQuantityByName(intervalName);
+        int intervalQuality = getIntervalQualityByName(intervalName);
 
         String startingNote = args[INTERVAL_CONSTRUCTION_STARTING_NOTE_INDEX];
         char startingNoteName = parseNoteName(startingNote);
@@ -192,11 +191,11 @@ public class Intervals {
         return Math.floorMod(noteIndex + order, notes.size());
     }
 
-    private static Integer getIntervalQuantity(String intervalName) {
+    private static Integer getIntervalQuantityByName(String intervalName) {
         return intervals.get(intervalName)[INTERVAL_QUANTITY_INDEX];
     }
 
-    private static Integer getIntervalQuality(String intervalName) {
+    private static Integer getIntervalQualityByName(String intervalName) {
         return intervals.get(intervalName)[INTERVAL_QUALITY_INDEX];
     }
 
